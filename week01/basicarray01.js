@@ -106,3 +106,61 @@ let cloneAr9 = [...ar9[0],...ar9[1],...ar9[2]]
 
 console.log(cloneAr9)
 
+//==========================================================
+// ทวน Array Methods 
+// 1. map() แปลงข้อมูลใน array
+// Given an array of user objects:
+// [{name: "Alice", age: 28}, {name: "Bob", age: 35}, {name: "Carol", age: 22}]
+// Create a new array of strings with the format:
+// "Name: <name>, Age: <age>"
+let user = [
+    {name: "Alice", age: 28},
+    {name: "Bob", age: 35},
+    {name: "Carol", age:22}
+];
+
+let result = user.map(u => "Name:"+ u.name + " Age:" + u.age);
+console.log(result)
+
+// 2. filter() กรองเฉพาะสิ่งที่ตรงตามเงื่อนไข
+// Given an array of products:
+// [{id: 1, price: 99}, {id: 2, price: 250}, {id: 3, price: 50}]
+// Return an array containing only the products with a price less than 100
+let products = [
+    {id: 1, price: 99},
+    {id: 2, price: 250},
+    {id: 3, price: 50}
+];
+
+let result2 = products.filter(p => (p.price > 100)).map(p => "id:" + p.id + " price:" + p.price)
+console.log(result2);
+
+// 3. find() หา element ตัวแรกที่ตรงเงื่อนไข แล้วคืนค่านั้น
+// Given an array of tasks:
+// [{id: 101, completed: false}, {id: 102, completed: true}, {id: 103, completed: false}]
+// Find the first task that is not completed
+let tasks = [
+    {id: 101, completed: false},
+    {id: 102, completed: true},
+    {id: 103, completed: false}
+]
+
+let result3 = tasks.find(t =>(t.completed === false))
+console.log(result3)
+
+// use filter 
+
+let results3 = tasks.filter(t3 => (t3.completed === false)).map(t3 => "id:" + t3.id + " completed:" + t3.completed)
+console.log(results3) // return ค่าเป็น array
+
+// 4. reduce() คำนวณตัวเลขใน array ให้รวมกันเป็นค่าเดียว แล้วแต่ว่าจะทำอะไรบวกลบคูณหาร
+// Given an array of numbers:
+// [10, 20, 30, 40, 50]
+// Calculate the total sum of these numbers
+let arr4 = [10,20,30,40,50]
+let result4 = arr4.reduce((acc,num) => acc * num, 1);  // คูณต้องเป็น 1 
+console.log(result4)
+
+let results4 = arr4.reduce((acc,num) => acc + num, 0)
+console.log(results4)
+
