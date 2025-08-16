@@ -1,0 +1,28 @@
+homework.js
+ในข้อที่อาจารย์ให้เป็น homework 3. Shallow Equality function shallowEquality
+method Object.keys() เอาชื่อ object มาเป็น array ซึ่งง่ายต่อการเปรียบเทียบค่าของ object
+ไม่ว่าจะเป็นความยาวของ string หรือ string มีค่าเท่ากันไหม จาก variable Shallow Equality ที่มีมาให้ใน silde หนูได้เพิ่ม variable ไป 3 variable เพื่อเช็คว่า 
+1. ถ้าความยาวของค่าน้อยกว่าเมื่อเปรียบเทียบมาจะได้ค่าเท่ากันไหม 
+2. ถ้า case-sensitive ขนาดตัวอักษรต่างกัน eg. Java // java (พิมพ์เล็ก/พิมพ์ใหญ่) จะได้ค่าที่เท่ากันไหม 
+3. ถ้าความยาวเท่ากันแต่ค่า string ไม่ตรงกันจะได้ค่าที่เท่ากันไหม
+ผลลัพธ์ที่ได้คือ 
+1. true 
+    isbn = 123456789 เท่ากัน
+    title = "JavaScript" เท่ากัน
+2. false
+    isbn ต่างกัน 123456789 vs 12345
+    title เท่ากัน แต่ แค่หนึ่ง property ต่างกันจะเป็น false ทันที
+3. false
+    isbn เท่ากัน
+    title ต่างกันเพราะ function shallowEquality เช็ค case-sensitive eg. Java // java จะเป็น false ทันที ขนาดตัวอักษรต้องเท่ากัน Java === Java 
+4. false 
+    isbn เท่ากัน
+    title ต่างกันเพราะ ถึงแม้ความยาวของ string เท่ากันมีอักษรพิมพ์เล็กพิมพ์ใหญ่เหมือนกัน (case-sensitive) แต่ถ้าค่าไม่ตรงกัน eg. Java // Test จะเป็น false ทันที
+shallowEquality คือการเช็คค่าของ property ของ object ซึ่งการใช้ method Object.keys ทำเป็น array ทำให้สะดวกมากขึ้นในการใช้ for of วนลูปเช็คค่า 
+
+=======================================================================================
+object.js
+หนูขอโจทย์จาก AI ในการทำ self-practice โดยที่ให้อิงจากโค้ดที่สอนในห้องก่อน โดยที่
+ข้อ 1. หนูทวนเรื่อง Object Literals ที่อาจารย์สอนในห้อง ลองใช้ reduce ใน function ค่ะ
+ข้อ 2. หนูได้โจทย์มาคล้ายกับที่เคยฝึกทำตอนสอบ exam ของอาจารย์เกรียงไกรหนูลืมไปว่า function ไม่สามารถสร้าง method นอก object ได้ ตอนแรกเลยมีลืมว่าต้องทำยังไง ส่วนนี้เลยใช้ AI ช่วยค่ะ  this.getCarInfo = function() และพึ่งรู้อีกว่า this.getCarInfo() แบบนี้เฉย ๆ ไม่ได้ เราต้องบอกมันด้วยว่าเป็น function *this.getCarInfo = function()*
+ข้อ 3. เรื่อง class หนูค่อนข้างชินกับประกาศตัวแปรและเขียนแบบ class จากวิชาอาจารย์เกรียงไกรเมื่อปี 1 แต่มีปัญหาตรงที่ this.balance += amount ตอนแรกหนูเขียนว่า amount += this.balance ทำให้ deposit และ withdraw ค่าไม่เปลี่ยนแปลง เลยรู้ว่าจะบวกหรือลบค่าทางขวาเสมอค่ะ 
