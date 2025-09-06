@@ -115,3 +115,40 @@ console.log(findMaxAndMin([3, 7, 1, 9, 4]));
 //destrucuring
 const numbers = [1,2,3,4,5,6]
 console.log(findMaxAndMin(numbers));
+
+// โจทย์ 5 : เขียนฟังก์ชัน countCharacters(str)
+// เขียนฟังก์ชันคืนค่า object ที่เก็บจำนวนครั้งของตัวอักษรแต่ละตัว (ignore case และนับเฉพาะ a-z) 
+// console.log(countCharacters("Hello World!")); { h:1, e:1, l:3, o:2, w:1, r:1, d:1 }
+
+function countCharacters(str){
+    if(!str) return {};
+    const result = {};
+    for(let ch of str.toLowerCase()){
+        if(ch >= 'a' && ch <= 'z'){
+            if(result[ch]){
+                result[ch] += 1;
+            } else {
+                result[ch] = 1;
+            }
+        }
+    }
+    return result;
+}
+console.log(countCharacters("Hello World!"));
+
+// โจทย์ 6 : groupByFirstLetter(words)
+// เขียนฟังก์ชันรับ array ของคำ แล้วคืนค่าเป็น object ที่ key คือ ตัวอักษรตัวแรก ของคำ และ value เป็น array ของคำที่ขึ้นต้นด้วยตัวนั้น
+// console.log(groupByFirstLetter(["apple", "banana", "apricot", "blueberry", "cherry"]));
+// { a: ['apple', 'apricot'], b: ['banana', 'blueberry'], c: ['cherry'] }
+function groupByFirstLetter(words){
+    return words.reduce((acc, word) => {
+        const first = word[0].toLowerCase();
+        if(acc[first]){
+            acc[first].push(word);
+        } else {
+            acc[first] = [word];
+        }
+        return acc;
+    }, {});
+}
+console.log(groupByFirstLetter(["apple", "banana", "apricot", "blueberry", "cherry"]));
