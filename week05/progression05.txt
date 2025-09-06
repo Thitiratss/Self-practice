@@ -1,0 +1,46 @@
+ข้อ 1. addProperty(obj, key, value)
+หนูขียนฟังก์ชันที่เพิ่ม property ใหม่เข้าไปใน object โดยใช้วิธี obj[key] = value ค่ะ
+
+ข้อ 2. mergeObject(obj1, obj2)
+หนูใช้ spread operator (...) เพื่อ merge obj1 และ obj2 เข้าด้วยกันค่ะ
+
+ข้อ 3. getFreqOfWords(sentence)
+หนูเช็คก่อนว่าถ้า input เป็น null หรือ undefined ให้ return undefined จากนั้น หนูแปลง string เป็นตัวพิมพ์เล็กทั้งหมดเพื่อ ignore case แล้วใช้split(' ') เพื่อแยกคำแต่ละคำใน sentence และใช้ reduce เพื่อวนดูค่าทีละตัวว่าเจอคำกี่ครั้ง ถ้ามีคำใหม่ให้ค่าเป็น 1 แต่ถ้าเจอคำซ้ำให้ + 1 ค่ะ
+
+ข้อ 4. extractAndRename(obj)
+ตอนแรกหนูไม่รู้ว่า destructuring สามารถเปลี่ยนชื่อได้ จาก name => fullName และ age => yearsOld จึงให้ AI ช่วยทำข้อนี้ค่ะ 
+
+ข้อ 5. mergeAndDestructure(obj1, obj2)
+หนู merge โดบ้ spread operator ก่อน แล้วใช้ destructuring ดึง name กับ age ออกมาค่ะ
+
+
+ข้อ 6. removeDuplicateWords(sentence)
+หนูเช็คก่อนค่ะว่าถ้า input เป็นค่าว่างให้ return "" และใช้ reduce เพื่อวนดูค่าทีละตัว ถ้ามีคำใหม่ให้เก็บเอาไว้ แต่หนูใช้ .map ในการทำให้เป็น toLowerCases() พอ return ค่าออกมา ค่าจะยังคงเก็บรูปแบบ original ไว้ ไม่ได้เป็น toLowerCases() ค่ะ
+
+ข้อ 7. findValue(arr) 
+หนูใช้ reduce เพื่อหาค่า min, max, sum หนูพึ่งรู้ว่าค่าที่ 3 ของ reduce คือ index (acc,num,index) ข้อนี้ลยให้ AI ช่วยอธิบายเพิ่ม พอรู้ว่า index = 0 คือรอบแรก ก็เลยให้ min, max, sum เริ่มจากค่าตัวแรกของ array ไปเลย แล้วรอบต่อมาก็ค่อยเช็คต่อว่าค่าปัจจุบันน้อยกว่า min ไหม / มากกว่า max ไหม และบวกเข้า sum ไปเรื่อย ๆ ค่ะ
+สุดท้ายก็หาค่า avg โดยเอา sum / arr.length ค่ะ
+
+ข้อ 8. convertToUppercase(arr)
+ข้อนี้ง่ายเลยค่ะ ใช้ .map() แล้วเรียก .toUpperCase() กับทุก element ของ array ผลลัพธ์ที่ได้ก็เป็น array ใหม่ที่เป็นตัวพิมพ์ใหญ่ทั้งหมด
+
+ข้อ 9. findMax(arr)
+ข้อนี้หนูอยากลองใช้ reduce หาค่า max ค่ะ โดยเริ่มจากค่า 0 แล้วให้ reduce เช็คไปเรื่อย ๆ ถ้าค่าปัจจุบัน (num) มากกว่า acc (ค่าที่สะสมไว้) ก็ให้ acc = num ค่ะ
+
+ข้อ 10. removeFalsyValues(arr)
+ข้อนี้ตอนแรกหนูเขียนแบบ for loop เช็คค่าทีละตัวว่าเป็น falsy ไหม (0, "", false, null, undefined) ถ้าไม่ใช่ก็ push เข้า result ค่ะ แต่หนูไปถาม AI ว่ามีวิธีที่ง่ายกว่านี้ไหมให้ AI ช่วยอธิบาย เลยได้รู้ว่า filter() มันจะเก็บเฉพาะค่าที่ truthy ให้อัตโนมัติเลยค่ะ
+
+ข้อ 11. doubleAndFilterEvenNumbers(arr)
+หนูใช้ .filter() ก่อนเพื่อเก็บเฉพาะเลขคู่ (i % 2 === 0) จากนั้นใช้ .map(i => i * 2) เพื่อทำให้เลขคู่ทุกตัวถูกคูณ 2 ค่ะ ข้อนี้เหมือนที่อาจารย์ยกตัวอย่างในห้องค่ะ
+
+ข้อ 12. filterEvenNumbers(arr)
+ข้อนี้คล้ายกับข้อ 11 เลย แต่หนูไม่ต้อง .map() ต่อ ใช้แค่ .filter() เพื่อเก็บเลขคู่เอาไว้ค่ะ
+
+ข้อ 13. populateArray(length, value)
+ข้อนี้หนูให้ AI ช่วยอธิบายเพิ่มเติมค่ะ เลยได้รู้ว่า สามารถใช้ new Array(length).fill(value) เพื่อสร้าง array ที่มีความยาวตาม length และให้ทุกค่าภายในเป็น value เดียวกันทั้งหมดได้ค่ะ
+
+ข้อ 14. squareNumbers(arr)
+ข้อนี้หนูใช้ .map(i => i ** 2) เพื่อยกกำลังสองทุกค่าภายใน array ค่ะ
+
+ข้อ 15. processNumbers(arr)
+ข้อนี้หนูใช้ .filter(num => num % 2 !== 0) เพื่อเก็บเฉพาะเลขคี่ ใช้ .map(num => num ** 2) เพื่อยกกำลังสองเลขคี่ทั้งหมด ใช้ .reduce((sum, num) => sum + num, 0) ้เพื่อบวกเลขคี่ที่ยกกำลังสองแล้วเข้าด้วยกันจึงได้ค่ารวมของเลขคี่ยกกำลังสองบวกกันค่ะ 
